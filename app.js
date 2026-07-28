@@ -201,25 +201,73 @@ function closeQrModal() {
   document.getElementById('qrModal').classList.remove('active');
 }
 
-// --- 7. DYNAMIC VCARD GENERATOR ---
-function downloadVCard() {
-  const vcardData = `BEGIN:VCARD
-VERSION:1.0
-FN: Eng. Marcio Braga
+// --- 7. CONTACT MODAL & VCARD GENERATOR ---
+function openContactModal() {
+  const vcardText = `BEGIN:VCARD
+VERSION:3.0
+N:Braga;Marcio;;Eng.;
+FN:Eng. Marcio Braga - MSB Engenharia
 ORG:MSB Engenharia
 TITLE:Engenheiro Civil & Gestor de Projetos
-TEL;TYPE=CELL,VOICE:+5521998621382
+TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+5521998621382
+TEL;TYPE=CELL:+5521998621382
 EMAIL:msbservicos.eng@gmail.com
+URL:https://www.instagram.com/msb.engenharia_/
 END:VCARD`;
 
-  const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.setAttribute('download', 'MSB_Engenharia.vcf');
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const dataUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcardText);
+  const vcardLink = document.getElementById('vcardDataLink');
+  if (vcardLink) {
+    vcardLink.href = dataUri;
+  }
+  
+  document.getElementById('contactModal').classList.add('active');
+}
+
+function closeContactModal() {
+  document.getElementById('contactModal').classList.remove('active');
+}
+
+function copyContactInfo() {
+  const textToCopy = `Eng. Marcio Braga - MSB Engenharia\nTelefone: (21) 99862-1382\nE-mail: msbservicos.eng@gmail.com`;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      showCopyFeedback();
+    }).catch(() => {
+      fallbackCopyText(textToCopy);
+    });
+  } else {
+    fallbackCopyText(textToCopy);
+  }
+}
+
+function showCopyFeedback() {
+  const btnText = document.getElementById('copyBtnText');
+  if (btnText) {
+    const originalText = btnText.innerText;
+    btnText.innerText = '✓ Copiado para a área de transferência!';
+    setTimeout(() => {
+      btnText.innerText = originalText;
+    }, 2500);
+  }
+}
+
+function fallbackCopyText(text) {
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.select();
+  try {
+    document.execCommand('copy');
+    showCopyFeedback();
+  } catch (err) {
+    alert(text);
+  }
+  document.body.removeChild(textArea);
+}
+
+function downloadVCard() {
+  openContactModal();
 }
 
 // Close modals when clicking outside modal-card
