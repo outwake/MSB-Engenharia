@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSB Engenharia | Engenharia Civil & Gestão de Obras</title>
+  <meta name="description" content="Engenharia Civil, Gestão de Obras e Projetos Estruturais. Soluções sofisticadas, no prazo e com garantia técnica.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-navy">
+
+  <!-- Floating Theme & Customization Widget -->
+  <div class="theme-switcher-bar" title="Alternar tema de cores">
+    <button class="theme-btn" data-theme="theme-forest" title="Verde Floresta & Dourado (Fiel às Fotos)">
+      <span class="color-dot forest"></span>
+    </button>
+    <button class="theme-btn" data-theme="theme-slate" title="Grafite Orgânico & Bronze">
+      <span class="color-dot slate"></span>
+    </button>
+    <button class="theme-btn" data-theme="theme-sand" title="Areia & Terracota (Minimalista Claro)">
+      <span class="color-dot sand"></span>
+    </button>
+    <button class="theme-btn active" data-theme="theme-navy" title="Azul Marinho & Ouro">
+      <span class="color-dot navy"></span>
+    </button>
+  </div>
+
+  <main class="container">
+
+    <!-- HEADER / PROFILE SECTION -->
+    <header class="profile-header">
+      <div class="avatar-wrapper">
+        <img src="https://ik.imagekit.io/Outwake/2606518_5857484(1).jpg?updatedAt=1776952646160" alt="MSB Engenharia" class="profile-avatar">
+        <span class="crea-badge" title="CREA Registrado"><i class="fa-solid fa-certificate"></i> CREA-RJ</span>
+      </div>
+      
+      <h1 class="profile-name">MSB Engenharia</h1>
+      <p class="profile-subtitle">GEOTECNIA, INFRAESTRUTURA & OBRAS CIVIS.</p>
+      
+      <!-- Decorative Line Divider with Center Dot -->
+      <div class="line-divider">
+        <span class="line-left"></span>
+        <span class="circle-dot"></span>
+        <span class="line-right"></span>
+      </div>
+      
+      <p class="profile-bio">
+        Soluções geotécnicas para obras de alta complexidade.
+      <br>
+        Especialista em Geotecnia e Contenções.
+      </p>
+    </header>
+
+    <!-- MINI-GALERIA DE PROJETOS (CARROSSEL) -->
+    <section class="gallery-section">
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          
+          <!-- Slide 1 -->
+          <div class="carousel-slide active">
+            <div class="project-card">
+              <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Residência Alto Padrão - Alphaville">
+                <span class="project-tag">Engenharia Civil & Estrutural</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Residência Alto Padrão</h3>
+                <p>Alphaville / SP — 480m² de área construída</p>
+                <button class="btn-card-action" onclick="openProjectModal(1)">
+                  Ver todos os projetos <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Edifício Comercial & Corporativo">
+                <span class="project-tag">Gestão & Reforço Estrutural</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Edifício Corporativo Horizon</h3>
+                <p>São Paulo / SP — Reforma & Adequação Técnica</p>
+                <button class="btn-card-action" onclick="openProjectModal(2)">
+                  Ver todos os projetos <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Casa Contemporânea em Aço & Concreto">
+                <span class="project-tag">Projeto Executivo BIM</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Villa Contemporânea</h3>
+                <p>Campinas / SP — Estrutura Mista Aço & Concreto</p>
+                <button class="btn-card-action" onclick="openProjectModal(3)">
+                  Ver todos os projetos <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Carousel Navigation Controls -->
+        <button class="carousel-btn prev" id="prevSlide" aria-label="Anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next" id="nextSlide" aria-label="Próximo">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="carousel-dots" id="carouselDots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+      </div>
+    </section>
+
+    <!-- CARD SOLICITAR ORÇAMENTO (DESTAQUE AMARELO MOSTARDA / DOURADO) -->
+    <section class="cta-section">
+      <div class="cta-card">
+        <h2>Descubra o custo e o prazo para o seu projeto hoje mesmo</h2>
+        <button class="btn-mustard-cta" onclick="openQuoteModal()">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Solicitar orçamento</span>
+          <i class="fa-solid fa-chevron-right arrow-icon"></i>
+        </button>
+      </div>
+    </section>
+
+        <!-- DECORATIVE DIVIDER -->
+    <div class="line-divider">
+      <span class="line-left"></span>
+      <span class="circle-dot"></span>
+      <span class="line-right"></span>
+    </div>
+
+    <!-- SEÇÃO: SERVIÇOS PRESTADOS -->
+    <section class="services-section">
+      <h2 class="section-title">NOSSOS SERVIÇOS</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-info">
+            <i class="fa-solid fa-compass-drafting service-icon"></i>
+            <span>Consultoria em Serviços Geotécnicos</span>
+          </div>
+        </div>
+
+        <div class="service-card interactive" onclick="openGeotecniaModal()">
+          <div class="service-info">
+            <i class="fa-solid fa-hill-rockslide service-icon"></i>
+            <div class="service-text">
+              <span>Serviços Geotécnicos</span>
+              <small class="service-subtext">Clique para ver 6 especialidades <i class="fa-solid fa-chevron-right"></i></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card interactive" onclick="openMaquinasModal()">
+          <div class="service-info">
+            <i class="fa-solid fa-truck-front service-icon"></i>
+            <div class="service-text">
+              <span>Locação de Máquinas</span>
+              <small class="service-subtext">Clique para ver máquinas disponíveis <i class="fa-solid fa-chevron-right"></i></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-info">
+            <i class="fa-solid fa-seedling service-icon"></i>
+            <span>Hidrossemeadura</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-info">
+            <i class="fa-solid fa-building service-icon"></i>
+            <span>Obras Civis</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-info">
+            <i class="fa-solid fa-helmet-safety service-icon"></i>
+            <span>Construção e Reformas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECORATIVE DIVIDER -->
+    <div class="line-divider">
+      <span class="line-left"></span>
+      <span class="circle-dot"></span>
+      <span class="line-right"></span>
+    </div>
+
+    <!-- SEÇÃO: ETAPAS DO PROJETO (ESTILO NÚMEROS CIRCULADOS 1 A 6) -->
+    <section class="steps-section">
+      <h2 class="section-title">ETAPAS DO PROJETO</h2>
+      
+      <ol class="steps-list">
+        <li class="step-item">
+          <span class="step-number">1</span>
+          <div class="step-content">
+            <h3>Encontro</h3>
+            <p>Conversamos no escritório ou online para nos conhecermos, entender seu projeto e alinhar premissas e contrato.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <span class="step-number">2</span>
+          <div class="step-content">
+            <h3>Visita técnica</h3>
+            <p>Um técnico vai até o local para tirar medidas, analisar o ambiente e fazer registros fotográficos.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <span class="step-number">3</span>
+          <div class="step-content">
+            <h3>Opções de layout & Orçamento detalhado</h3>
+            <p>Apresentação de propostas de layout, estimativa detalhada de custos e cronograma de obra.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <span class="step-number">4</span>
+          <div class="step-content">
+            <h3>Visualização & Projetos 3D</h3>
+            <p>Você recebe imagens 3D realistas, detalhamento executivo e especificações de materiais.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <span class="step-number">5</span>
+          <div class="step-content">
+            <h3>Documentação técnica</h3>
+            <p>Entrega de todas as plantas, projetos complementares e demais documentações.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <span class="step-number">6</span>
+          <div class="step-content">
+            <h3>Acompanhamento de obra</h3>
+            <p>Supervisão contínua para garantir que a execução siga fielmente o projeto aprovado e no prazo pactuado.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- LINKS RÁPIDOS E CONTATOS DA EMPRESA -->
+    <section class="links-section">
+      <a href="https://api.whatsapp.com/send/?phone=5521998621382&text=Olá%21+Gostaria+de+mais+informações+sobre+MSB+Engenharia%21+&type=phone_number&app_absent=0" target="_blank" class="link-button highlight">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Falar Direto no WhatsApp</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+      <a href="https://www.instagram.com/msb.engenharia_/" target="_blank" class="link-button">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Siga no Instagram (@msb.engenharia_)</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+      <button class="link-button" onclick="openCreaModal()">
+        <i class="fa-solid fa-id-card"></i>
+        <span>Registro CREA-SP & Certificações</span>
+      </button>
+
+      <!--<button class="link-button" onclick="openQrModal()">
+        <i class="fa-solid fa-qrcode"></i>
+        <span>Compartilhar QR Code do Perfil</span>
+      </button>-->
+
+      <a href="javascript:void(0)" onclick="downloadVCard()" class="link-button">
+        <i class="fa-solid fa-address-book"></i>
+        <span>Salvar Contato na Agenda</span>
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="profile-footer">
+      <div class="social-links">
+        <a href="https://www.instagram.com/msb.engenharia_/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" title="E-mail"><i class="fa-regular fa-envelope"></i></a>
+        <a href="#" title="Localização"><i class="fa-solid fa-location-dot"></i></a>
+      </div>
+      <p>© 2026 MSB Engenharia CNPJ: 32.712.488.0001-76. <br> Todos os direitos reservados.</p>
+      <p class="made-by">Made by <a href="https://outwake.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Outwake</a></p>
+    </footer>
+
+  </main>
+
+  <!-- MODAL: DETALHES DO PROJETO DA GALERIA -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+      <div id="modalContent">
+        <!-- Content inserted dynamically by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SOLICITAR ORÇAMENTO (FORMULÁRIO INTERATIVO QUE REDIRECIONA PRO WHATSAPP) -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-card quote-modal-card">
+      <button class="modal-close" onclick="closeQuoteModal()">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-calculator modal-icon"></i>
+        <h2>Solicitar Orçamento</h2>
+        <p>Preencha rapidamente para ser redirecionado com a mensagem pronta no WhatsApp:</p>
+      </div>
+
+      <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+        <div class="form-group">
+          <label for="clientName">Seu Nome:</label>
+          <input type="text" id="clientName" placeholder="Ex: Ana Silva" required>
+        </div>
+
+        <div class="form-group">
+          <label for="projectType">Tipo de Serviço:</label>
+          <select id="projectType" required>
+            <option value="">Selecione...</option>
+            <option value="Consultoria em Serviços Geotécnicos">Consultoria em Serviços Geotécnicos</option>
+            <option value="Serviços Geotécnicos">Serviços Geotécnicos</option>
+            <option value="Locação de Máquinas">Locação de Máquinas</option>
+            <option value="Obras Civis">Obras Civis</option>
+            <option value="Construção e Reformas">Construção e Reformas</option>
+            <option value="Hidrossemeadura">Hidrossemeadura</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="projectArea">Localidade:</label>
+          <input type="text" id="projectArea" placeholder="Ex: Barra da Tijuca / RJ">
+        </div>
+
+        <div class="form-group">
+          <label for="projectDetails">Detalhes do Projeto:</label>
+          <textarea id="projectDetails" rows="3" placeholder="Conte brevemente o que você precisa..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Enviar diretamente para o WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CREA & CERTIFICAÇÕES -->
+  <div class="modal-overlay" id="creaModal">
+    <div class="modal-card text-center">
+      <button class="modal-close" onclick="closeCreaModal()">&times;</button>
+      <i class="fa-solid fa-certificate modal-icon-gold"></i>
+      <h2 style="font-family: var(--font-serif); margin-bottom: 10px;">Registro CREA & Acreditação</h2>
+      <div class="crea-details-box">
+        <p><strong>Engenheiro Responsável:</strong> Marcio Braga</p>
+        <p><strong>Registro Profissional:</strong> CREA-SP 5069874123/D</p>
+        <p><strong>Especialização:</strong> Estruturas de Concreto Armado & Gestão BIM</p>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=5521998621382&text=Gostaria+de+solicitar+um+or%C3%A7amento.&type=phone_number&app_absent=0" target="_blank" class="btn-submit-whatsapp" style="margin-top: 15px;">
+        <i class="fa-solid fa-file-signature"></i> Solicitar Certidão Técnica
+      </a>
+    </div>
+  </div>
+
+  <!-- MODAL: QR CODE -->
+  <!--<div class="modal-overlay" id="qrModal">
+  /*  <div class="modal-card text-center">
+  /*    <button class="modal-close" onclick="closeQrModal()">&times;</button>
+  /*    <h2 style="font-family: var(--font-serif); margin-bottom: 10px;">QR Code de Contato</h2>
+  /*    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Abra a câmera do celular para salvar este perfil instantaneamente.</p>
+  /*    
+  /*    <div class="qr-container">
+  /*      <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://ricardomendes.eng.br&color=1b332b" alt="QR Code Perfil Engenharia">
+  /*    </div>
+      
+  /*    <p class="qr-subtext">MSB Engenharia • CREA-RJ</p>
+  /*  </div>
+  /*</div>
+
+  <!-- MODAL: SERVIÇOS GEOTÉCNICOS -->
+  <div class="modal-overlay" id="geotecniaModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeGeotecniaModal()">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-hill-rockslide modal-icon-gold"></i>
+        <h2 style="font-size: 1.4rem; margin-bottom: 4px;">Serviços Geotécnicos</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Especialidades em contenção e engenharia geotécnica</p>
+      </div>
+
+      <ul class="subtopics-list">
+        <li><i class="fa-solid fa-circle-check"></i> Solo Grampeado</li>
+        <li><i class="fa-solid fa-circle-check"></i> Solo Grampeado verde</li>
+        <li><i class="fa-solid fa-circle-check"></i> Cortina atirantada</li>
+        <li><i class="fa-solid fa-circle-check"></i> Concreto projetado</li>
+        <li><i class="fa-solid fa-circle-check"></i> Tela de alta resistência</li>
+        <li><i class="fa-solid fa-circle-check"></i> Gabião</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL: LOCAÇÃO DE MÁQUINAS -->
+  <div class="modal-overlay" id="maquinasModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeMaquinasModal()">&times;</button>
+      <div class="modal-header">
+        <i class="fa-solid fa-truck-front modal-icon-gold"></i>
+        <h2 style="font-size: 1.4rem; margin-bottom: 4px;">Locação de Máquinas</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Equipamentos especializados para movimentação de terra e obras</p>
+      </div>
+
+      <ul class="subtopics-list">
+        <li><i class="fa-solid fa-circle-check"></i> Retro escavadeira</li>
+        <li><i class="fa-solid fa-circle-check"></i> Escavadeira</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JS APP -->
+  <script src="app.js"></script>
+</body>
+</html>
