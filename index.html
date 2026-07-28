@@ -217,7 +217,7 @@
     </div>
 
     <!-- SEÇÃO: ETAPAS DO PROJETO (ESTILO NÚMEROS CIRCULADOS 1 A 6) -->
-    <section class="steps-section">
+   <!-- <section class="steps-section">
       <h2 class="section-title">ETAPAS DO PROJETO</h2>
       
       <ol class="steps-list">
@@ -272,7 +272,9 @@
     </section>
 
     <!-- LINKS RÁPIDOS E CONTATOS DA EMPRESA -->
+    
     <section class="links-section">
+       <h2 class="section-title">CONTATOS & INFORMAÇÕES</h2>
       <a href="https://api.whatsapp.com/send/?phone=5521998621382&text=Olá%21+Gostaria+de+mais+informações+sobre+MSB+Engenharia%21+&type=phone_number&app_absent=0" target="_blank" class="link-button highlight">
         <i class="fa-brands fa-whatsapp"></i>
         <span>Falar Direto no WhatsApp</span>
@@ -295,7 +297,7 @@
         <span>Compartilhar QR Code do Perfil</span>
       </button>-->
 
-      <a href="javascript:void(0)" onclick="downloadVCard()" class="link-button">
+      <a href="javascript:void(0)" onclick="openContactModal()" class="link-button">
         <i class="fa-solid fa-address-book"></i>
         <span>Salvar Contato na Agenda</span>
       </a>
@@ -305,11 +307,11 @@
     <footer class="profile-footer">
       <div class="social-links">
         <a href="https://www.instagram.com/msb.engenharia_/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" title="E-mail"><i class="fa-regular fa-envelope"></i></a>
+        <a href="mailto:msbservicos.eng@gmail.com" title="E-mail"><i class="fa-regular fa-envelope"></i></a>
         <a href="#" title="Localização"><i class="fa-solid fa-location-dot"></i></a>
       </div>
       <p>© 2026 MSB Engenharia CNPJ: 32.712.488.0001-76. <br> Todos os direitos reservados.</p>
-      <p class="made-by">Made by <a href="https://outwake.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Outwake</a></p>
+      <p class="made-by">Made by <a href="https://outwake.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Outwake.</a></p>
     </footer>
 
   </main>
@@ -438,6 +440,39 @@
         <li><i class="fa-solid fa-circle-check"></i> Retro escavadeira</li>
         <li><i class="fa-solid fa-circle-check"></i> Escavadeira</li>
       </ul>
+    </div>
+  </div>
+
+  <!-- MODAL: SALVAR CONTATO NA AGENDA -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-card text-center">
+      <button class="modal-close" onclick="closeContactModal()">&times;</button>
+      <i class="fa-solid fa-address-card modal-icon-gold"></i>
+      <h2 style=" font-size: 1.4rem; margin-bottom: 6px;">Salvar / Entrar em Contato</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">Escolha a opção mais prática para seu celular:</p>
+
+      <div class="contact-info-box">
+        <p style="font-weight: 700; font-size: 1rem; color: var(--text-accent);">Eng. Marcio Braga</p>
+        <p style="margin-top: 4px;"><i class="fa-solid fa-phone" style="color: var(--text-accent); margin-right: 6px;"></i> (21) 99862-1382</p>
+        <p><i class="fa-regular fa-envelope" style="color: var(--text-accent); margin-right: 6px;"></i> msbservicos.eng@gmail.com</p>
+      </div>
+
+      <div class="contact-actions-grid">
+        <a id="vcardDataLink" href="#" class="btn-contact-action primary">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Importar Contato (.vcf)</span>
+        </a>
+
+        <a href="tel:+5521998621382" class="btn-contact-action">
+          <i class="fa-solid fa-phone"></i>
+          <span>Ligar Direto (Discador)</span>
+        </a>
+
+        <button type="button" onclick="copyContactInfo()" class="btn-contact-action" id="copyContactBtn">
+          <i class="fa-regular fa-copy"></i>
+          <span id="copyBtnText">Copiar Telefone & E-mail</span>
+        </button>
+      </div>
     </div>
   </div>
 
