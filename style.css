@@ -481,6 +481,7 @@ body {
 .about-section h3 span{
   color: var(--text-accent);
   text-decoration: none;
+  font-weight: 600;
 }
 
 .about-card p {
