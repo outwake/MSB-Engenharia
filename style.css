@@ -11,7 +11,7 @@
   --font-heading: 'Montserrat', sans-serif;
   --font-script: 'Alex Brush', cursive;
 
-  /* Default Theme: Forest & Mustard Gold (Fiel às Imagens do Usuário) */
+  /* Theme 1: Forest & Mustard Gold */
   --bg-main: #1b332b;
   --bg-card: #233e35;
   --bg-card-border: rgba(229, 169, 59, 0.15);
@@ -46,29 +46,33 @@ body.theme-slate {
   --step-circle-text: #d48c46;
 }
 
-/* Theme 3: Areia & Terracota (Minimalista Claro) */
+/* Theme 3: Areia & Azul Marinho (Minimalista Claro) */
 body.theme-sand {
   --bg-main: #f5f2eb;
   --bg-card: #ffffff;
-  --bg-card-border: rgba(184, 93, 56, 0.2);
+  --bg-card-border: rgba(15, 28, 46, 0.16);
   --cta-bg: #ebd9c9;
-  --btn-mustard: #b85d38;
-  --btn-mustard-hover: #ca6b44;
+  --btn-mustard: #0f1c2e;
+  --btn-mustard-hover: #192d47;
   --btn-mustard-text: #ffffff;
-  --text-main: #1f2b26;
-  --text-muted: #5e6e67;
-  --text-accent: #b85d38;
-  --divider-line: rgba(184, 93, 56, 0.3);
-  --step-circle-border: #b85d38;
-  --step-circle-text: #b85d38;
+  --btn-card-bg: rgba(15, 28, 46, 0.05);
+  --btn-card-border: rgba(15, 28, 46, 0.15);
+  --btn-card-hover: rgba(15, 28, 46, 0.12);
+  --text-main: #0f1c2e;
+  --text-muted: #3d5675;
+  --text-accent: #162840;
+  --divider-line: rgba(15, 28, 46, 0.22);
+  --step-circle-border: #162840;
+  --step-circle-text: #0f1c2e;
+  --badge-bg: rgba(15, 28, 46, 0.08);
 }
 
-/* Theme 4: Azul Marinho & Ouro */
+/* Theme 4: Azul Marinho & Ouro (Azul da Logo MSB) */
 body.theme-navy {
-  --bg-main: #0f1c2e;
-  --bg-card: #162840;
+  --bg-main: #0a0e2a;
+  --bg-card: #131a4c;
   --bg-card-border: rgba(224, 169, 59, 0.2);
-  --cta-bg: #132237;
+  --cta-bg: #0e143c;
   --btn-mustard: #e0a93b;
   --btn-mustard-hover: #edb648;
   --btn-mustard-text: #0b1523;
@@ -76,7 +80,7 @@ body.theme-navy {
   --text-muted: #9bb0cd;
   --text-accent: #e0a93b;
   --divider-line: rgba(224, 169, 59, 0.3);
-  --step-circle-border: #253e5e;
+  --step-circle-border: #1e2968;
   --step-circle-text: #e0a93b;
 }
 
@@ -151,8 +155,8 @@ body {
 
 .color-dot.forest { background: #1b332b; }
 .color-dot.slate { background: #191c21; }
-.color-dot.sand { background: #f5f2eb; border-color: #b85d38; }
-.color-dot.navy { background: #0f1c2e; }
+.color-dot.sand { background: #f5f2eb; border-color: #0f1c2e; }
+.color-dot.navy { background: #0a0e2a; }
 
 /* 1. HEADER / PROFILE */
 .profile-header {
@@ -330,8 +334,8 @@ body {
 .btn-card-action {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--btn-card-bg, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--btn-card-border, rgba(255, 255, 255, 0.1));
   border-radius: 8px;
   color: var(--text-accent);
   font-weight: 600;
@@ -345,8 +349,8 @@ body {
 }
 
 .btn-card-action:hover {
-  background: rgba(229, 169, 59, 0.15);
-  color: #fff;
+  background: var(--btn-card-hover, rgba(229, 169, 59, 0.15));
+  color: var(--text-main);
 }
 
 /* CAROUSEL BUTTONS & DOTS */
@@ -448,8 +452,49 @@ body {
   font-size: 1.2rem;
 }
 
-.btn-mustard-cta .arrow-icon {
+/* 3.4 SEÇÃO NOSSA HISTÓRIA */
+.about-section {
+  width: 100%;
+}
+
+.about-card {
+  
+  border-radius: 14px;
+  padding: 22px 20px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-section h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 15px;
+  font-style: italic;
+
+}
+.about-section h3 span{
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+.about-card p {
   font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0;
+}
+
+.about-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
 }
 
 /* 3.5 SEÇÃO SERVIÇOS PRESTADOS */
@@ -523,7 +568,7 @@ body {
 
 .badge-popup {
   font-size: 0.72rem;
-  background: rgba(224, 169, 59, 0.15);
+  background: var(--badge-bg, rgba(224, 169, 59, 0.15));
   color: var(--text-accent);
   border: 1px solid var(--text-accent);
   padding: 4px 8px;
@@ -931,4 +976,37 @@ body {
 
 .crea-details-box p {
   margin-bottom: 8px;
+}
+
+/* ==========================================
+   8. ANIMAÇÕES SCROLL REVEAL (FADE-IN UP)
+   ========================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays para listas/cards em sequência */
+.reveal-delay-1 { transition-delay: 200ms; }
+.reveal-delay-2 { transition-delay: 300ms; }
+.reveal-delay-3 { transition-delay: 400ms; }
+.reveal-delay-4 { transition-delay: 500ms; }
+.reveal-delay-5 { transition-delay: 600ms; }
+.reveal-delay-6 { transition-delay: 700ms; }
+
+/* Suporte a preferências de redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
