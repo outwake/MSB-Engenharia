@@ -1,23 +1,38 @@
 /* ==========================================
-   MINIMALIST ENGINEERING BIO LINK (LINKTREE)
-   Interactive Features & Modals Script
+   MINIMALISTA ENGENHARIA LINKTREE
+   Funções Interativas e Modais
    ========================================== */
 
-// --- 1. THEME SWITCHER LOGIC ---
+// --- 1. SELETOR DE TEMA COM PERSISTÊNCIA (LOCALSTORAGE) ---
 const themeBtns = document.querySelectorAll('.theme-btn');
 const body = document.body;
 
+function applyTheme(themeName) {
+  body.className = themeName;
+  themeBtns.forEach(b => {
+    if (b.getAttribute('data-theme') === themeName) {
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
+    }
+  });
+}
+
+// Restaura tema salvo no navegador ou mantém o padrão
+const savedTheme = localStorage.getItem('msb_selected_theme');
+if (savedTheme) {
+  applyTheme(savedTheme);
+}
+
 themeBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    themeBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    
     const selectedTheme = btn.getAttribute('data-theme');
-    body.className = selectedTheme;
+    applyTheme(selectedTheme);
+    localStorage.setItem('msb_selected_theme', selectedTheme);
   });
 });
 
-// --- 2. CAROUSEL SLIDER LOGIC ---
+// --- 2. LÓGICA DO CARROSSEL ---
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const dots = document.querySelectorAll('.carousel-dots .dot');
@@ -27,12 +42,12 @@ const totalSlides = slides.length;
 function updateCarousel() {
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
   
-  // Update slides active state
+  // Atualiza os slides ativos
   slides.forEach((slide, index) => {
     slide.classList.toggle('active', index === currentSlide);
   });
 
-  // Update dots
+  // Atualiza os dots
   dots.forEach((dot, index) => {
     dot.classList.toggle('active', index === currentSlide);
   });
@@ -53,7 +68,7 @@ document.getElementById('prevSlide').addEventListener('click', () => {
   updateCarousel();
 });
 
-// Touch Swipe Support for Mobile Carousel
+// Slide Touch no Celular
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -78,38 +93,48 @@ function handleSwipe() {
   }
 }
 
-// Auto Slide every 6 seconds
+// Auto Slide a cada 6 segundos
 setInterval(() => {
   currentSlide = (currentSlide + 1) % totalSlides;
   updateCarousel();
 }, 6000);
 
-// --- 3. PROJECT DETAIL MODAL ---
+// --- 3. MODAL DE DETALHES DO PROJETO (GALERIA) ---
 const projectData = {
   1: {
-    title: "Residência Alto Padrão - Alphaville",
-    category: "Engenharia Civil & Estrutura Mista",
-    location: "Alphaville, Santana de Parnaíba / SP",
-    area: "480 m² de área construída",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    desc: "Execução completa de estrutura em concreto armado com vãos livres de 12 metros, integração de conceito aberto, fundações profundas em estacas escavadas e acabamentos de altíssimo padrão."
+    title: "Estabilização & Contenção de Talude",
+    category: "Serviços Geotécnicos",
+    location: "Proteção de Encosta & Vias",
+    area: "Tela de Alta Resistência",
+    img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/1.png",
+    desc: "Obra de engenharia geotécnica voltada para a contenção e estabilização de taludes em cortes viários/ferroviários. Aplicação de tela de alta resistência e sistema de grampeamento de solo para garantia de segurança e controle de erosão."
   },
   2: {
-    title: "Edifício Corporativo Horizon",
-    category: "Reforço Estrutural & Readequação",
-    location: "Av. Faria Lima, São Paulo / SP",
-    area: "1.200 m² de área útil",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-    desc: "Retrofit e laudo de integridade estrutural para expansão de pavimentos corporativos. Aplicação de fibra de carbono em vigas de sustentação e regularização junto à prefeitura."
+    title: "Hidrossemeadura & Bioengenharia",
+    category: "Hidrossemeadura / Proteção Ambiental",
+    location: "Proteção de Encostas & Controle de Erosão",
+    area: "Aplicação por Jateamento de Alta Pressão",
+    img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/4.png",
+    desc: "Aplicação técnica de hidrossemeadura para revegetação e biofixação do solo em taludes. O processo combina sementes, fertilizantes, aditivos e mulching para rápida fixação da vegetação, prevenindo erosões provocadas pelas chuvas."
   },
   3: {
-    title: "Villa Contemporânea",
-    category: "Projeto Executivo & Compatibilização BIM",
-    location: "Campinas / SP",
-    area: "350 m²",
-    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-    desc: "Compatibilização total de projetos em plataforma BIM (Revit), reduzindo o desperdício de materiais na obra a menos de 2%. Estrutura metálica aparente com painéis térmicos."
+    title: "Locação de Máquinas & Equipamentos",
+    category: "Locação de Máquinas",
+    location: "Movimentação de Terra & Escavação",
+    area: "Retroescavadeiras & Escavadeiras Operadas",
+    img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/3.png",
+    desc: "Serviço de locação de máquinas de grande porte (retroescavadeiras e escavadeiras) com operadores qualificados para escavação, aterro, nivelamento e movimentação de terra em obras geotécnicas e civis."
+  },
+  
+  4: {
+    title: "Cortina Atirantada & Contenção",
+    category: "Serviços Geotécnicos",
+    location: "Contenção de Encostas & Encomendas de Grande Porte",
+    area: "Concreto Armado & Tirantes Pré-esforçados",
+    img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/2.png",
+    desc: "Execução de cortina atirantada em concreto armado para contenção de empuxos elevados e estabilização de encostas. O sistema utiliza tirantes de aço pré-esforçados ancorados no maciço rochoso/solo, garantindo máxima estabilidade técnica e durabilidade estrutural."
   }
+
 };
 
 function openProjectModal(id) {
@@ -136,7 +161,7 @@ function closeProjectModal() {
   document.getElementById('projectModal').classList.remove('active');
 }
 
-// --- 4. QUOTE MODAL & WHATSAPP REDIRECT ---
+// --- 4. MODAL DE ORÇAMENTO E REDIRECIONAMENTO WHATSAPP ---
 function openQuoteModal() {
   document.getElementById('quoteModal').classList.add('active');
 }
@@ -160,7 +185,7 @@ function handleQuoteSubmit(e) {
                   ` *Detalhes:* ${details || 'Sem observações'}\n\n` +
                   `Gostaria de agendar uma conversa para orçamento.`;
   
-  const whatsappUrl = `https://wa.me/5521998577111?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/5521998621382?text=${encodeURIComponent(message)}`;
   
   window.open(whatsappUrl, '_blank');
   closeQuoteModal();
@@ -201,7 +226,7 @@ function closeQrModal() {
   document.getElementById('qrModal').classList.remove('active');
 }
 
-// --- 7. CONTACT MODAL & VCARD GENERATOR ---
+// --- 7. CONTATO MODAL & GERADOR VCARD ---
 function openContactModal() {
   const vcardText = `BEGIN:VCARD
 VERSION:3.0
@@ -270,7 +295,7 @@ function downloadVCard() {
   openContactModal();
 }
 
-// Close modals when clicking outside modal-card
+// Close modals quando clica fora
 document.querySelectorAll('.modal-overlay').forEach(modal => {
   modal.addEventListener('click', e => {
     if (e.target === modal) {
@@ -278,3 +303,32 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
     }
   });
 });
+
+// --- 8. LÓGICA DE SCROLL REVEAL (FADE-IN UP) ---
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -25px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('visible'));
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollReveal);
+} else {
+  initScrollReveal();
+}
