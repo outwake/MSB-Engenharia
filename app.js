@@ -146,7 +146,7 @@ function openProjectModal(id) {
       <img src="${proj.img}" alt="${proj.title}" style="width: 100%; height: 100%; object-fit: cover;">
       <span style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px;">${proj.category}</span>
     </div>
-    <h2 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-main); margin-bottom: 6px;">${proj.title}</h2>
+    <h2 style=" font-size: 1.4rem; color: var(--text-main); margin-bottom: 6px;">${proj.title}</h2>
     <p style="font-size: 0.85rem; color: var(--text-accent); font-weight: 600; margin-bottom: 12px;"><i class="fa-solid fa-location-dot"></i> ${proj.location} • ${proj.area}</p>
     <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px;">${proj.desc}</p>
     <a href="https://wa.me/5521998621382?text=Ol%C3%A1!%20Vi%20o%20projeto%20${encodeURIComponent(proj.title)}%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20semelhante." target="_blank" class="btn-submit-whatsapp">
