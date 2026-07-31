@@ -11,8 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome Icons -->
+  <!-- FontAwesome & Phosphor Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   
   <link rel="icon" type="image/svg+xml" href="https://ik.imagekit.io/Outwake/MSB%20Engenharia/icon2.jpeg" />
   <link rel="stylesheet" href="style.css">
@@ -35,7 +39,6 @@
     <header class="profile-header reveal">
       <div class="avatar-wrapper">
         <img src="https://ik.imagekit.io/Outwake/MSB%20Engenharia/icon.jpeg" alt="MSB ENGENHARIA" class="profile-avatar">
-        <span class="crea-badge" title="CREA Registrado"><i class="fa-solid fa-certificate"></i> CREA-RJ</span>
       </div>
       
       <h1 class="profile-name">MSB ENGENHARIA</h1>
@@ -49,9 +52,9 @@
       </div>
       
       <p class="profile-bio">
-        Soluções geotécnicas para obras de alta complexidade.
-      <br>
-        Especialista em Geotecnia e Contenções.
+        Soluções geotécnicas para obras de alta complexidade.</p>
+      <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 92%; margin: 5px auto; line-height: 1.5; font-weight: 400;">
+        Especialista em Engenharia Geotécnica, Contenções e Estabilização de Taludes.
       </p>
     </header>
 
@@ -68,7 +71,7 @@
                 <span class="project-tag">Serviços Geotécnicos</span>
               </div>
               <div class="project-card-body">
-                <h3>Estabilização & Contenção de Talude</h3>
+                <h3>Estabilização de Taludes com Solo Grampeado</h3>
                 <p>Proteção de Encosta com Tela de Alta Resistência</p>
                 <button class="btn-card-action" onclick="openProjectModal(1)">
                   Ver mais informações <i class="fa-solid fa-arrow-right"></i>
@@ -85,7 +88,7 @@
                 <span class="project-tag">Hidrossemeadura</span>
               </div>
               <div class="project-card-body">
-                <h3>Hidrossemeadura & Bioengenharia</h3>
+                <h3>Hidrossemeadura</h3>
                 <p>Controle de Erosão & Revegetação de Taludes</p>
                 <button class="btn-card-action" onclick="openProjectModal(2)">
                   Ver mais informações <i class="fa-solid fa-arrow-right"></i>
@@ -103,7 +106,7 @@
               </div>
               <div class="project-card-body">
                 <h3>Locação de Máquinas & Equipamentos</h3>
-                <p>Retroescavadeiras & Escavadeiras para Movimentação de Terra</p>
+                <p>Retroescavadeiras & Escavadeiras</p>
                 <button class="btn-card-action" onclick="openProjectModal(3)">
                   Ver mais informações <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -120,8 +123,25 @@
               </div>
               <div class="project-card-body">
                 <h3>Cortina Atirantada & Contenção</h3>
-                <p>Contenção em Concreto Armado com Tirantes Pré-esforçados</p>
+                <p>Contenção em Concreto Armado ancorada por Tirantes Permanentes</p>
                 <button class="btn-card-action" onclick="openProjectModal(4)">
+                  Ver mais informações <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-img-wrapper">
+                <img src="https://ik.imagekit.io/Outwake/MSB%20Engenharia/5.png" alt="Muro de Gabião e Contenção de Encosta">
+                <span class="project-tag">Serviços Geotécnicos</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Muro de Gabião</h3>
+                <p>Estrutura de Contenção Permeável</p>
+                <button class="btn-card-action" onclick="openProjectModal(5)">
                   Ver mais informações <i class="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
@@ -208,7 +228,7 @@
 
         <div class="service-card interactive reveal reveal-delay-3" onclick="openMaquinasModal()">
           <div class="service-info">
-            <i class="fa-solid fa-truck-front service-icon"></i>
+            <i class="ph-bold ph-bulldozer service-icon"></i>
             <div class="service-text">
               <span>Locação de Máquinas</span>
               <small class="service-subtext">Clique para ver máquinas disponíveis <i class="fa-solid fa-chevron-right"></i></small>
@@ -458,9 +478,9 @@
     <div class="modal-card">
       <button class="modal-close" onclick="closeMaquinasModal()">&times;</button>
       <div class="modal-header">
-        <i class="fa-solid fa-truck-front modal-icon-gold"></i>
+        <i class="ph-bold ph-bulldozer modal-icon-gold"></i>
         <h2 style="font-size: 1.4rem; margin-bottom: 4px;">Locação de Máquinas</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Equipamentos especializados para movimentação de terra e obras</p>
+
       </div>
 
       <ul class="subtopics-list">
