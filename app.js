@@ -93,24 +93,22 @@ function handleSwipe() {
   }
 }
 
-// Auto Slide a cada 6 segundos
+// Auto Slide a cada 8 segundos
 setInterval(() => {
   currentSlide = (currentSlide + 1) % totalSlides;
   updateCarousel();
-}, 6000);
+}, 8000);
 
 // --- 3. MODAL DE DETALHES DO PROJETO (GALERIA) ---
 const projectData = {
   1: {
-    title: "Estabilização & Contenção de Talude",
+    title: "Estabilização de Taludes com Solo Grampeado",
     category: "Serviços Geotécnicos",
-    location: "Proteção de Encosta & Vias",
-    area: "Tela de Alta Resistência",
     img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/1.png",
-    desc: "Obra de engenharia geotécnica voltada para a contenção e estabilização de taludes em cortes viários/ferroviários. Aplicação de tela de alta resistência e sistema de grampeamento de solo para garantia de segurança e controle de erosão."
+    desc: "Estabilização de taludes com solo grampeado é uma técnica de engenharia geotécnica utilizada para aumentar a estabilidade de encostas naturais e taludes escavados. O sistema consiste na instalação de barras de aço (grampos) no interior do maciço, posteriormente injetadas com calda de cimento, trabalhando em conjunto com revestimentos como concreto projetado e sistemas de drenagem."
   },
   2: {
-    title: "Hidrossemeadura & Bioengenharia",
+    title: "Hidrossemeadura",
     category: "Hidrossemeadura / Proteção Ambiental",
     location: "Proteção de Encostas & Controle de Erosão",
     area: "Aplicação por Jateamento de Alta Pressão",
@@ -123,16 +121,22 @@ const projectData = {
     location: "Movimentação de Terra & Escavação",
     area: "Retroescavadeiras & Escavadeiras Operadas",
     img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/3.png",
-    desc: "Serviço de locação de máquinas de grande porte (retroescavadeiras e escavadeiras) com operadores qualificados para escavação, aterro, nivelamento e movimentação de terra em obras geotécnicas e civis."
+    desc: "Disponibilizamos máquinas e equipamentos de alto desempenho para obras de engenharia geotécnica, infraestrutura e construção civil. Nossa frota é composta por equipamentos modernos e confiáveis, garantindo produtividade, segurança e eficiência para atender às demandas de cada projeto."
   },
   
   4: {
-    title: "Cortina Atirantada & Contenção",
+    title: "Cortina Atirantada",
     category: "Serviços Geotécnicos",
-    location: "Contenção de Encostas & Encomendas de Grande Porte",
-    area: "Concreto Armado & Tirantes Pré-esforçados",
+    location: "Contenção em Concreto Armado Ancorada por Tirantes",
     img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/2.png",
-    desc: "Execução de cortina atirantada em concreto armado para contenção de empuxos elevados e estabilização de encostas. O sistema utiliza tirantes de aço pré-esforçados ancorados no maciço rochoso/solo, garantindo máxima estabilidade técnica e durabilidade estrutural."
+    desc: "A cortina atirantada é uma solução de contenção utilizada para estabilizar escavações e taludes em áreas com restrição de espaço ou elevadas solicitações estruturais. O sistema é composto por uma estrutura de concreto armado ancorada por tirantes, que transferem os esforços para camadas resistentes do terreno, proporcionando segurança, estabilidade e controle dos deslocamentos. É amplamente empregada em obras de infraestrutura, edificações, rodovias, ferrovias e empreendimentos industriais, garantindo desempenho, durabilidade e confiabilidade mesmo em condições geotécnicas complexas."
+  },
+
+  5: {
+    title: "Muro de Gabião",
+    category: "Serviços Geotécnicos / Contenções",
+    img: "https://ik.imagekit.io/Outwake/MSB%20Engenharia/5.png",
+    desc: "O muro de gabião é uma solução de contenção flexível e altamente permeável, composta por gaiolas de malha metálica em aço galvanizado preenchidas com pedras selecionadas. É ideal para estabilização de taludes, controle de erosão e proteção de margens e encostas, garantindo drenagem natural eficiente e perfeita integração ambiental."
   }
 
 };
@@ -140,14 +144,21 @@ const projectData = {
 function openProjectModal(id) {
   const proj = projectData[id];
   const modalContent = document.getElementById('modalContent');
-  
+  let locationLine = '';
+  if (proj.location && proj.area) {
+    locationLine = `<i class="fa-solid fa-location-dot"></i> ${proj.location} • ${proj.area}`;
+  } else if (proj.location) {
+    locationLine = `<i class="fa-solid fa-location-dot"></i> ${proj.location}`;
+  } else if (proj.area) {
+  locationLine = proj.area;
+  }
   modalContent.innerHTML = `
     <div style="position: relative; width: 100%; height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 15px;">
       <img src="${proj.img}" alt="${proj.title}" style="width: 100%; height: 100%; object-fit: cover;">
       <span style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px;">${proj.category}</span>
     </div>
     <h2 style=" font-size: 1.4rem; color: var(--text-main); margin-bottom: 6px;">${proj.title}</h2>
-    <p style="font-size: 0.85rem; color: var(--text-accent); font-weight: 600; margin-bottom: 12px;"><i class="fa-solid fa-location-dot"></i> ${proj.location} • ${proj.area}</p>
+    <p style="font-size: 0.85rem; color: var(--text-accent); font-weight: 600; margin-bottom: 12px;">${locationLine}</p>
     <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px;">${proj.desc}</p>
     <a href="https://wa.me/5521998621382?text=Ol%C3%A1!%20Vi%20o%20projeto%20${encodeURIComponent(proj.title)}%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20semelhante." target="_blank" class="btn-submit-whatsapp">
       <i class="fa-brands fa-whatsapp"></i> Quero um orçamento como este
@@ -233,7 +244,6 @@ VERSION:3.0
 N:Braga;Marcio;;Eng.;
 FN:Eng. Marcio Braga - MSB Engenharia
 ORG:MSB Engenharia
-TITLE:Engenheiro Civil & Gestor de Projetos
 TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+5521998621382
 TEL;TYPE=CELL:+5521998621382
 EMAIL:msbservicos.eng@gmail.com
