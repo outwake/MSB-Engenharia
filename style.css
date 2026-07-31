@@ -69,15 +69,15 @@ body.theme-sand {
 
 /* Theme 4: Azul Marinho & Ouro (Azul da Logo MSB) */
 body.theme-navy {
-  --bg-main: #0a0e2a;
-  --bg-card: #131a4c;
+  --bg-main: #0b0a56;
+  --bg-card: #110f65;
   --bg-card-border: rgba(224, 169, 59, 0.2);
-  --cta-bg: #0e143c;
+  --cta-bg: #0f0e7c;
   --btn-mustard: #e0a93b;
   --btn-mustard-hover: #edb648;
   --btn-mustard-text: #0b1523;
   --text-main: #ffffff;
-  --text-muted: #9bb0cd;
+  --text-muted: #c4d4fb;
   --text-accent: #e0a93b;
   --divider-line: rgba(224, 169, 59, 0.3);
   --step-circle-border: #1e2968;
@@ -156,7 +156,7 @@ body {
 .color-dot.forest { background: #1b332b; }
 .color-dot.slate { background: #191c21; }
 .color-dot.sand { background: #f5f2eb; border-color: #0f1c2e; }
-.color-dot.navy { background: #0a0e2a; }
+.color-dot.navy { background: #0b0a56; }
 
 /* 1. HEADER / PROFILE */
 .profile-header {
@@ -173,8 +173,8 @@ body {
 }
 
 .profile-avatar {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   border: 2.5px solid var(--text-accent);
@@ -546,6 +546,13 @@ body {
   text-align: center;
 }
 
+/* Ajuste proporcional para ícones Phosphor (para igualar aos do FontAwesome) */
+.service-icon.ph,
+.service-icon.ph-bold,
+i[class*="ph-"].service-icon {
+  font-size: 1.55rem;
+}
+
 .service-text {
   display: flex;
   flex-direction: column;
@@ -808,6 +815,12 @@ body {
   font-size: 2.8rem;
   color: var(--text-accent);
   margin-bottom: 12px;
+}
+
+.modal-icon-gold.ph,
+.modal-icon-gold.ph-bold,
+i[class*="ph-"].modal-icon-gold {
+  font-size: 3.3rem;
 }
 
 /* SUBTÓPICOS NOS MODAIS */
